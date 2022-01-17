@@ -3,6 +3,7 @@ import './App.css';
 
 
 type FormElement = React.FormEvent<HTMLFormElement>
+
 interface ITask {
   name: string;
   done: boolean;
@@ -15,16 +16,18 @@ function App(): JSX.Element {
 
 
   function handleSubmit(e: FormElement) {
+    console.log("evento", newTask);
     e.preventDefault();
-    // if (e.target.value ) {
-      
-    // } else {
-      
-    // }
-    addTask(newTask);
-    console.log(tasks);
-    setNewTask("")
-    taskInput.current?.focus();
+    if (!newTask) {
+      alert("Insert Task")
+
+    } else {
+
+      addTask(newTask);
+      console.log(tasks);
+      setNewTask("")
+      taskInput.current?.focus();
+    }
 
   }
 
